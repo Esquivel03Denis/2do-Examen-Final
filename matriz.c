@@ -66,11 +66,8 @@ if (argc=5 && (columna1==fila2) ){
 
 				}
 			}
-			printf("\n");
 
 		}
-			printf("\n");
-
 	}
 
 	sem_init(&sem1,0,1);
@@ -96,7 +93,7 @@ if (argc=5 && (columna1==fila2) ){
 
 	imprimir();
 }else{
-	printf("Datos incorrectos");
+	printf("Datos incorrectos\n");
 }
 
 
@@ -211,28 +208,40 @@ void imprimir(){
 	actual2 = primeroMatriz2;
 	actualR = primeroMatrizR;
 	
-printf("x   y  valor\n");
+printf("Matriz 1\n");
 
 	while(actual1!= NULL){
-		printf("%d  %d  %d\n",actual1->x, actual1->y, actual1->valor);	
+		printf("[%d]",actual1->valor);	
 			actual1 = actual1 -> siguiente;
+			if(actual1!= NULL){
+				if(actual1->x != aux){
+					aux=actual1->x;
+					printf("\n");
+				}
+			}
   }
 	
 
-printf("  \n\n");
-
+printf("  \n");
+printf("Matriz 2\n");
+aux=0;
 	while(actual2!= NULL){
-		printf("%d  %d  %d\n",actual2->x, actual2->y, actual2->valor);	
+		printf("[%d]",actual2->valor);	
 			actual2 = actual2 -> siguiente;
+			if(actual2!= NULL){
+				if(actual2->x != aux){
+					aux=actual2->x;
+					printf("\n");
+				}
+			}
   }
 	
-
-
-	printf("  \n\n");
+	printf(" \n");
+	printf("Matriz Resultante\n");
+aux=0;
 
 	while(actualR!= NULL){
 		printf("[%d]",actualR->valor);	
-
 			actualR = actualR -> siguiente;
 			if(actualR!= NULL){
 				if(actualR->x != aux){
